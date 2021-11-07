@@ -1,0 +1,33 @@
+#代码块的东西，profile多文件配置,
+#也可以用命令行模式：--spring.profiles.active=dev  在run as添加
+server:
+  port: 8083 
+spring:
+  profiles:
+    active: dev
+
+---
+
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+---
+
+server:
+  port: 9999
+spring:
+  profiles: prod
+
+---
+person: 
+#  lastName: renxuan 
+  age: ${random.int}
+  boss: false
+  birth: 2021/1/21
+  maps: {k1: v1,k2: v2}
+  lists: [list1,list2]
+  dog: 
+   name: 占位符生成的${person.last-name:默认值}的狗编号${random.uuid}
+   age: 2
